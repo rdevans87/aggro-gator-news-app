@@ -14,3 +14,40 @@
   <link rel="icon" type="image/png" sizes="16x16" href="/favicon-16x16.png">
   <link rel="manifest" href="/site.webmanifest">
   <title>Aggrogator</title>
+
+  <body>
+    <div class="stripe"></div>
+    <nav>
+      <div class="nav__brand">
+        <a href="./index.html">Home</a>
+      </div>
+      <div class="nav__brand__link">
+        <a href="./favorites.html">Saved</a>
+      </div>
+    </nav>
+    <header>
+      <h1>Your Feed</h1>
+      <div class="add-topic-container">
+        <h2>Add or Select a Topic</h2>
+        <form action="POST">
+          <input aria-label="Add a topic" id="add-topic" type="text" placeholder="Technology" />
+          <button id="submit-topic" class="button--primary">
+            Add
+          </button>
+        </form>
+      </div>
+    </header>
+    <div class="topic-container"></div>
+    <script src="dist/app.bundle.js"></script>
+    <script type="text/javascript">
+      (function () {
+        if ("serviceWorker" in navigator) {
+          navigator.serviceWorker.register("./service-worker.js", { scope: "/" })
+            .then(() => console.log("Service Worker registered successfully."))
+            .catch(error => console.log("Service Worker registration failed:", error));
+        }
+      })();
+    </script>
+  </body>
+  
+  </html>
